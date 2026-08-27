@@ -1,0 +1,24 @@
+{
+  "name": "servehub",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "ServeHub — single Laravel app serving the API and the React (Vite) UI together.",
+  "scripts": {
+    "dev": "concurrently -n API,VITE -c blue,magenta \"php artisan serve --port=8000\" \"vite\"",
+    "build": "vite build",
+    "setup": "([ -f .env ] || cp .env.example .env) && php artisan key:generate && php artisan migrate --seed"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^9.0.1",
+    "laravel-vite-plugin": "^1.0.5",
+    "vite": "^5.4.8"
+  }
+}
