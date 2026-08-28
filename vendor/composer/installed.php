@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'servehub/servehub',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '1e85caae66879b52d709bb1c79b8c83f0b556198',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -960,9 +960,9 @@
             'dev_requirement' => true,
         ),
         'servehub/servehub' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '1e85caae66879b52d709bb1c79b8c83f0b556198',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
