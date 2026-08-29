@@ -10,6 +10,19 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
+Route::any('/echo-debug', function (\Illuminate\Http\Request $request) {
+    return response()->json([
+        'path' => $request->path(),
+        'getRequestUri' => $request->getRequestUri(),
+        'REQUEST_URI' => $_SERVER['REQUEST_URI'] ?? null,
+        'PATH_INFO' => $_SERVER['PATH_INFO'] ?? null,
+        'SCRIPT_NAME' => $_SERVER['SCRIPT_NAME'] ?? null,
+        'method' => $request->method(),
+    ]);
+});
+
 require __DIR__.'/auth.php';
 require __DIR__.'/user.php';
 require __DIR__.'/providerProfile.php';
