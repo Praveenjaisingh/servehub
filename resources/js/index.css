@@ -467,3 +467,201 @@ table.table td {
   font-size: 0.88rem;
 }
 table.table tr:last-child td { border-bottom: none; }
+
+/* ---------- auth screens ---------- */
+
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .auth-shell { grid-template-columns: 1fr; }
+  .auth-side { display: none; }
+}
+
+.auth-side {
+  position: relative;
+  background: var(--primary);
+  color: #fff;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.auth-side::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(228, 160, 48, 0.18) 0, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.08) 0, transparent 45%),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 26px);
+  pointer-events: none;
+}
+
+.auth-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.auth-brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  transform: rotate(-3deg);
+}
+
+.auth-copy {
+  position: relative;
+  max-width: 380px;
+}
+
+.auth-copy h2 {
+  color: #fff;
+  font-size: 1.9rem;
+  margin-bottom: 14px;
+}
+
+.auth-copy p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.96rem;
+}
+
+.auth-points {
+  position: relative;
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.auth-points li svg { flex-shrink: 0; margin-top: 2px; color: var(--accent); }
+
+.auth-footnote {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-form-wrap.wide { max-width: 480px; }
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 30px;
+}
+
+@media (max-width: 480px) {
+  .auth-card { padding: 22px; box-shadow: none; border: none; }
+}
+
+.auth-footer-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.auth-footer-link a { font-weight: 600; }
+
+/* password field with visibility toggle */
+
+.password-field { position: relative; }
+
+.password-field .input { padding-right: 42px; }
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color 120ms ease, background-color 120ms ease;
+}
+
+.password-toggle:hover { color: var(--primary); background: var(--surface-sunken); }
+.password-toggle:focus-visible { outline: 2px solid var(--primary); outline-offset: 1px; }
+
+/* role picker cards used on register */
+
+.role-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.role-card {
+  text-align: left;
+  border: 1.5px solid var(--line-strong);
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.role-card strong { display: block; font-size: 0.88rem; color: var(--ink); }
+.role-card span { display: block; font-size: 0.76rem; color: var(--ink-faint); margin-top: 2px; }
+
+.role-card:hover { border-color: var(--primary); }
+
+.role-card.active {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.role-card.active strong { color: var(--primary); }
