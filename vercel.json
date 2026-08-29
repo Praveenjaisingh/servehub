@@ -12,36 +12,21 @@
   "outputDirectory": "public",
 
   "routes": [
-    {
-      "src": "/build/(.*)",
-      "dest": "/build/$1"
-    },
-    {
-      "src": "/(css|js|images|fonts|favicon)/(.*)",
-      "dest": "/$1/$2"
-    },
-    {
-      "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/server/index.php"
-    }
+    { "src": "/build/(.*)", "dest": "/build/$1" },
+    { "src": "/(css|js|images|fonts|favicon)/(.*)", "dest": "/$1/$2" },
+    { "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/api/index.php" }
   ],
 
   "env": {
     "APP_ENV": "production",
     "APP_DEBUG": "false",
-
     "APP_CONFIG_CACHE": "/tmp/config.php",
     "APP_EVENTS_CACHE": "/tmp/events.php",
     "APP_PACKAGES_CACHE": "/tmp/packages.php",
     "APP_ROUTES_CACHE": "/tmp/routes.php",
     "APP_SERVICES_CACHE": "/tmp/services.php",
-
     "VIEW_COMPILED_PATH": "/tmp",
-
     "CACHE_STORE": "array",
     "LOG_CHANNEL": "stderr",
     "SESSION_DRIVER": "cookie"
