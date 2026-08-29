@@ -13,4 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/__debug-routes', function () {
+    $routes = collect(app('router')->getRoutes())->map(function ($r) {
+        return implode('|', $r->methods()) . ' ' . $r->uri();
+    })->values();
+    return response()->json($routes);
+});
+
 Route::view('/{any}', 'app')->where('any', '.*');
