@@ -3,7 +3,7 @@
         'name' => 'servehub/servehub',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '1e85caae66879b52d709bb1c79b8c83f0b556198',
+        'reference' => 'd4f1c596a8dd4253e86b9f58e16c2085fc5d1e47',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -962,7 +962,7 @@
         'servehub/servehub' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '1e85caae66879b52d709bb1c79b8c83f0b556198',
+            'reference' => 'd4f1c596a8dd4253e86b9f58e16c2085fc5d1e47',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
