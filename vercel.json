@@ -2,20 +2,30 @@
   "version": 2,
   "framework": null,
 
- "functions": {
+  "functions": {
     "api/index.php": {
-     "runtime": "vercel-php@0.6.2",
+      "runtime": "vercel-php@0.9.0",
       "includeFiles": "**"
+    },
+    "api/debug-status.php": {
+      "runtime": "vercel-php@0.9.0"
     }
   },
 
   "outputDirectory": "public",
 
-  "routes": [
-    { "src": "/build/(.*)", "dest": "/build/$1" },
-    { "src": "/(css|js|images|fonts|favicon)/(.*)", "dest": "/$1/$2" },
-    { "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt))$", "dest": "/$1" },
-    { "src": "/(.*)", "dest": "/api/index.php" }
+  "build": {
+    "env": {
+      "VITE_API_BASE_URL": "/api"
+    }
+  },
+
+  "rewrites": [
+    { "source": "/api/debug-status", "destination": "/api/debug-status.php" },
+    { "source": "/build/(.*)", "destination": "/build/$1" },
+    { "source": "/(css|js|images|fonts|favicon)/(.*)", "destination": "/$1/$2" },
+    { "source": "/(.*)\\.(css|js|png|jpg|jpeg|gif|svg|ico|ttf|woff|woff2|eot|otf|webp|avif|txt)", "destination": "/$1.$2" },
+    { "source": "/(.*)", "destination": "/api/index.php" }
   ],
 
   "env": {
