@@ -31,9 +31,12 @@ export function AuthProvider({ children }) {
   }, [])
 
   const persist = (result) => {
+    if (!result || !result.token) {
+      throw new Error('Authentication failed: Missing token in response.')
+    }
     localStorage.setItem('servehub_token', result.token)
-    localStorage.setItem('servehub_user', JSON.stringify(result.user))
-    setUser(result.user)
+    localStorage.setItem('servehub_user', JSON.stringify(result.user || {}))
+    setUser(result.user || null)
   }
 
   const login = useCallback(async (credentials) => {
